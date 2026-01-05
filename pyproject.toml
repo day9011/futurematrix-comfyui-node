@@ -1,0 +1,15 @@
+[project]
+name = "futurematrix-comfyui-node"
+description = ""
+version = "1.0.0"
+license = {file = "LICENSE"} 
+dependencies = ["openai", "requests"]
+
+[project.urls]
+Repository = "https://github.com/day9011/futurematrix-comfyui-node"
+
+[tool.comfy]
+PublisherId = "futurematrix"
+DisplayName = "futurematrix-comfyui-node"
+Icon = ""
+includes = [] 
