@@ -18,9 +18,17 @@ class QwenTextModifier:
     使用阿里云 Qwen 模型进行文本修改的 ComfyUI 自定义节点
     """
 
+    RETURN_TYPES = ("STRING", "STRING", "STRING")
+    RETURN_NAMES = ("modified_text", "original_text", "debug_info")
+    FUNCTION = "modify_text"
+    CATEGORY = "🤖 Qwen/Text Processing"
+    OUTPUT_NODE = True
+
+    DESCRIPTION = "使用阿里云 Qwen 大模型对文本进行智能修改和优化"
+
     def __init__(self):
         self.type = "QwenTextModifier"
-        self.output_node = False
+        self.output_node = True
 
     @classmethod
     def INPUT_TYPES(cls) -> Dict[str, Any]:
@@ -94,14 +102,6 @@ class QwenTextModifier:
             },
         }
 
-    RETURN_TYPES = ("STRING", "STRING", "STRING")
-    RETURN_NAMES = ("modified_text", "original_text", "debug_info")
-    FUNCTION = "modify_text"
-    CATEGORY = "🤖 Qwen/Text Processing"
-    OUTPUT_NODE = False
-    
-    DESCRIPTION = "使用阿里云 Qwen 大模型对文本进行智能修改和优化"
-
     def modify_text(
         self,
         api_key: str,
@@ -127,12 +127,18 @@ class QwenTextModifier:
         """
         try:
             # 验证 API Key
-            if not api_key or api_key.strip() == "" or api_key == "sk-your-api-key-here":
+            if (
+                not api_key
+                or api_key.strip() == ""
+                or api_key == "sk-your-api-key-here"
+            ):
                 error_msg = "错误: 请提供有效的阿里云 API Key"
                 print(f"\033[91m[QwenTextModifier] {error_msg}\033[0m")
-                print("\033[93m提示: 在 https://dashscope.console.aliyun.com/ 获取 API Key\033[0m")
+                print(
+                    "\033[93m提示: 在 https://dashscope.console.aliyun.com/ 获取 API Key\033[0m"
+                )
                 return (error_msg, input_text, error_msg)
-            
+
             # 初始化 OpenAI 兼容客户端
             client = OpenAI(
                 api_key=api_key.strip(),
@@ -193,7 +199,7 @@ class QwenTextModifierStream:
 
     def __init__(self):
         self.type = "QwenTextModifierStream"
-        self.output_node = False
+        self.output_node = True
 
     @classmethod
     def INPUT_TYPES(cls) -> Dict[str, Any]:
@@ -259,8 +265,8 @@ class QwenTextModifierStream:
     RETURN_NAMES = ("modified_text", "original_text")
     FUNCTION = "modify_text_stream"
     CATEGORY = "🤖 Qwen/Text Processing"
-    OUTPUT_NODE = False
-    
+    OUTPUT_NODE = True
+
     DESCRIPTION = "使用阿里云 Qwen 大模型对文本进行智能修改（流式输出）"
 
     def modify_text_stream(
@@ -277,11 +283,15 @@ class QwenTextModifierStream:
         """
         try:
             # 验证 API Key
-            if not api_key or api_key.strip() == "" or api_key == "sk-your-api-key-here":
+            if (
+                not api_key
+                or api_key.strip() == ""
+                or api_key == "sk-your-api-key-here"
+            ):
                 error_msg = "错误: 请提供有效的阿里云 API Key"
                 print(f"\033[91m[QwenTextModifierStream] {error_msg}\033[0m")
                 return (error_msg, input_text)
-            
+
             client = OpenAI(
                 api_key=api_key.strip(),
                 base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",
