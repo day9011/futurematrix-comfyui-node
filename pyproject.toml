@@ -1,6 +1,6 @@
 [project]
 name = "futurematrix-comfyui"
-description = ""
+description = "fix output_node bug"
 version = "1.0.1"
 license = {file = "LICENSE"} 
 dependencies = ["openai", "requests"]
