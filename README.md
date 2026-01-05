@@ -1,7 +1,5 @@
 # Future Matrix ComfyUI Custom Node
 
-以下是为“Future Matrix ComfyUI Custom Node”设计的GitHub英文项目描述，结合了ComfyUI自定义节点的核心特性和应用场景，力求专业且具有吸引力。
-
 Future Matrix: Advanced Workflow Automation and Conditional Logic Node for ComfyUI  
 Dynamic Control for Complex Generative AI Pipelines  
 
