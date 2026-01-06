@@ -1,9 +1,9 @@
 [project]
 name = "futurematrix-comfyui"
-description = "fix output_node bug"
-version = "1.0.1"
+description = "Futurematrix ComfyUI Custom Node"
+version = "1.0.2"
 license = {file = "LICENSE"} 
-dependencies = ["openai", "requests"]
+dependencies = ["openai", "requests", "re", "PIL", "torch"]
 
 [project.urls]
 Repository = "https://github.com/day9011/futurematrix-comfyui"
