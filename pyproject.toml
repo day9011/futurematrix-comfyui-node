@@ -3,7 +3,7 @@ name = "futurematrix-comfyui"
 description = "Futurematrix ComfyUI Custom Node"
 version = "1.0.2"
 license = {file = "LICENSE"} 
-dependencies = ["openai", "requests", "re", "PIL", "torch"]
+dependencies = ["openai", "requests", "re", "pillow", "torch", "numpy"]
 
 [project.urls]
 Repository = "https://github.com/day9011/futurematrix-comfyui"
